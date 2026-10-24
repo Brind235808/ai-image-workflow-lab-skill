@@ -13,9 +13,12 @@
 ## 结构
 
 ```
-SKILL.md                        # 主体：目录契约 + 六条硬纪律
+SKILL.md                        # 主体：目录契约 + 八条硬纪律 + 决策协议
 references/
+  project-kickoff.md            # 立项分析：目标、验收标准、首批实验
   session-protocol.md           # 开场/收场提示词、读预算、子 agent 看图协议
+  context-handoff.md            # 上下文健康检查、交接块、重启指令
+  decision-protocol.md          # 决策分级、提问模板、用户不懂时怎么给方向
   experiment-design.md          # 单变量实验、评分卡、种子决策树、自动指标政策
   legacy-migration.md           # 历史产出复古：四个会话、资产提取、A/B 分级
   tooling-stack.md              # MLflow / DVC / 环境快照 / FiftyOne / Optuna 分期
@@ -25,10 +28,11 @@ scripts/inventory.py            # 扫描历史图并导出元数据清单（纯�
 
 ## 快速开始
 
-1. 把 `assets/templates/` 里的文件复制到你的工作目录并改名。
-2. 用 `scripts/inventory.py` 扫一遍历史图片，得到 `inventory.csv`。
-3. 按 `references/legacy-migration.md` 的四个会话流程建出基线。
-4. 之后每轮按 `references/session-protocol.md` 的开场/收场提示词执行。
+1. 先按 `references/project-kickoff.md` 做一次立项分析，把目标与验收标准写进 `STATE.md`。
+2. 把 `assets/templates/` 里的文件复制到你的工作目录并改名。
+3. 用 `scripts/inventory.py` 扫一遍历史图片，得到 `inventory.csv`。
+4. 按 `references/legacy-migration.md` 的四个会话流程建出基线。
+5. 之后每轮按 `references/session-protocol.md` 的开场/收场提示词执行，每轮结束按 `references/context-handoff.md` 做健康检查。
 
 ## 安装
 
