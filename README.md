@@ -10,6 +10,8 @@
 
 这个 skill 的核心做法是：**agent 只读结论，原始材料留在磁盘上按需检索。**
 
+上下文压缩不由模型自行决定：压缩只是移动，被压掉的信息必须在文件里留下路径与锚点。详见 `references/compression-contract.md`。
+
 ## 结构
 
 ```
@@ -18,6 +20,8 @@ references/
   project-kickoff.md            # 立项分析：目标、验收标准、首批实验
   session-protocol.md           # 开场/收场提示词、读预算、子 agent 看图协议
   context-handoff.md            # 上下文健康检查、交接块、重启指令
+  compression-contract.md       # 压缩契约：保留/丢弃清单、审计四问、黑盒压缩恢复
+  context-projects.md           # 上下文与记忆项目选型：basic-memory / mem0 / graphiti / letta / LLMLingua
   decision-protocol.md          # 决策分级、提问模板、用户不懂时怎么给方向
   experiment-design.md          # 单变量实验、评分卡、种子决策树、自动指标政策
   legacy-migration.md           # 历史产出复古：四个会话、资产提取、A/B 分级
@@ -32,7 +36,7 @@ scripts/inventory.py            # 扫描历史图并导出元数据清单（纯�
 2. 把 `assets/templates/` 里的文件复制到你的工作目录并改名。
 3. 用 `scripts/inventory.py` 扫一遍历史图片，得到 `inventory.csv`。
 4. 按 `references/legacy-migration.md` 的四个会话流程建出基线。
-5. 之后每轮按 `references/session-protocol.md` 的开场/收场提示词执行，每轮结束按 `references/context-handoff.md` 做健康检查。
+5. 之后每轮按 `references/session-protocol.md` 的开场/收场提示词执行，每轮结束按 `references/context-handoff.md` 做健康检查，压缩与交接按 `references/compression-contract.md` 执行。
 
 ## 安装
 
